@@ -8,14 +8,11 @@
 
 <p>howdo transforms flat cheat sheets into interactive tools with variable injection, history support, and safety guards.</p>
 
-<img src="assets/howdo_demo.gif" width="750" alt="howdo demo" />
+<img src="assets/demo_v2.gif" width="750" alt="howdo demo" />
 
 <p><i>Effortlessly run complex commands without leaving your terminal.</i></p>
 
 </div>
-
----
----
 
 ---
 
