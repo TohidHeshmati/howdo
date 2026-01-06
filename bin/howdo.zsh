@@ -5,6 +5,12 @@ export HOWDO_ROOT="$(cd "$(dirname "${(%):-%N}")/.." && pwd)"
 export HOWDO_FILES="$HOWDO_ROOT/files"
 export HOWDO_HIST="$HOME/.howdo_history"
 
+# Handle Mac (ggrep) vs Linux (grep)
+if command -v ggrep >/dev/null 2>&1; then
+    _GREP="ggrep"
+else
+    _GREP="grep"
+fi
 [[ -f "$HOWDO_ROOT/lib/completion.zsh" ]] && source "$HOWDO_ROOT/lib/completion.zsh"
 
 howdo() {
