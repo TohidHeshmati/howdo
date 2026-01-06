@@ -1,9 +1,18 @@
 # 🧠 howdo
-![howdo Demo](assets/howdo_demo.gif)
+**The context-aware command runner for Zsh**
 
-`howdo` is a context-aware command runner for Zsh. It transforms your flat cheat sheets into interactive tools that prompt for variables, remember your input history, and provide safety checks for destructive commands.
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Zsh](https://img.shields.io/badge/shell-zsh-orange.svg)](https://www.zsh.org/)
 
-![howdo-demo](https://github.com/TohidHeshmati/howdo/assets/56185906/85188f98-b0d7-452f-90b9-3e20e178c772)
+<p>howdo transforms flat cheat sheets into interactive tools with variable injection, history support, and safety guards.</p>
+
+<a href="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d">
+  <img src="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d.svg" width="700"/>
+</a>
+
+*(Click the image above to watch the interactive demo)*
+
+</div>
 
 ---
 
