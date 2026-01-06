@@ -1,13 +1,40 @@
 🐳 Docker
-[DOCKER] docker stats ;; Live stream of container resource usage (CPU/RAM) #sys
-[DOCKER] docker exec -it <id> /bin/bash ;; Enter a running container @ id: The container ID or name
-[DOCKER] docker logs -f --tail 100 <id> ;; Follow the last 100 lines of logs @ id: The container ID or name
-[DOCKER] docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <id> ;; Get container IP @ id: The container ID or name #net
-[DOCKER] docker stop $(docker ps -q) ;; Stop all running containers ;; ⚠️ DANGER: This stops everything!
-[DOCKER] docker volume prune ;; Remove all unused local volumes ;; ⚠️ DANGER: Irreversible cleanup
-[DOCKER] docker start <name> && docker exec -it <name> /bin/bash ;; Resume an existing container @ name: The container name
-[DOCKER] docker ps -a ;; See all containers (including stopped ones) #list
-[DOCKER] docker rm -f <name> ;; Delete a container by name so you can reuse it @ name: The container name
+[DOCKER-LIFECYCLE] docker create <image> ;; Creates a new container from an image but does not start it. @ image: The image to create the container from (e.g., `ubuntu:latest`).
+[DOCKER-LIFECYCLE] docker run -it <image> /bin/bash ;; Create and start an interactive container. @ image: The image to run (e.g., `alpine`).
+[DOCKER-LIFECYCLE] docker start <container> ;; Start one or more stopped containers. @ container: The ID or name of the container.
+[DOCKER-LIFECYCLE] docker stop <container> ;; Stop one or more running containers. @ container: The ID or name of the container.
+[DOCKER-LIFECYCLE] docker restart <container> ;; Restart a container. @ container: The ID or name of the container.
+[DOCKER-LIFECYCLE] docker pause <container> ;; Pause all processes within a container. @ container: The ID or name of the container.
+[DOCKER-LIFECYCLE] docker unpause <container> ;; Unpause all processes within a container. @ container: The ID or name of the container.
+[DOCKER-LIFECYCLE] docker wait <container> ;; Block until a container stops, then print its exit code. @ container: The ID or name of the container.
+[DOCKER-LIFECYCLE] docker rm <container> ;; Remove one or more containers. @ container: The ID or name of the container. #delete
+[DOCKER-LIFECYCLE] docker rm -f <container> ;; Force the removal of a running container (uses SIGKILL). @ container: The ID or name of the container. #delete #force
+[DOCKER-INSPECT] docker ps ;; List running containers. #list
+[DOCKER-INSPECT] docker ps -a ;; List all containers, including stopped ones. #list
+[DOCKER-INSPECT] docker logs <container> ;; Fetch the logs of a container. @ container: The ID or name of the container.
+[DOCKER-INSPECT] docker logs -f --tail 100 <container> ;; Follow the last 100 lines of logs. @ container: The ID or name of the container.
+[DOCKER-INSPECT] docker inspect <container> ;; Display detailed information on one or more containers. @ container: The ID or name of the container.
+[DOCKER-INSPECT] docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container> ;; Get a container's IP address. @ container: The ID or name of the container. #network
+[DOCKER-INSPECT] docker stats ;; Live stream of container resource usage (CPU/RAM). #sys
+[DOCKER-EXEC] docker exec -it <container> /bin/bash ;; Enter a running container. @ container: The ID or name of the container.
+[DOCKER-EXEC] docker cp <host_path> <container>:<container_path> ;; Copy a file from the host to a container. @ host_path: The local file path. @ container: The target container's ID or name. @ container_path: The destination path inside the container.
+[DOCKER-EXEC] docker cp <container>:<container_path> <host_path> ;; Copy a file from a container to the host. @ container: The source container's ID or name. @ container_path: The path of the file inside the container. @ host_path: The local destination path.
+[DOCKER-IMAGE] docker images ;; List all images. #list
+[DOCKER-IMAGE] docker pull <image> ;; Pull an image or a repository from a registry. @ image: The name of the image to pull (e.g., `nginx:latest`).
+[DOCKER-IMAGE] docker push <image> ;; Push an image or a repository to a registry. @ image: The name of the image to push.
+[DOCKER-IMAGE] docker build -t <tag> <path> ;; Build an image from a Dockerfile. @ tag: The tag for the new image (e.g., `my-app:1.0`). @ path: The path to the directory containing the Dockerfile.
+[DOCKER-IMAGE] docker rmi <image> ;; Remove one or more images. @ image: The ID or name of the image to remove. #delete
+[DOCKER-IMAGE] docker history <image> ;; Show the history of an image. @ image: The ID or name of the image.
+[DOCKER-NETWORK] docker network ls ;; List all networks. #list
+[DOCKER-NETWORK] docker network create <network> ;; Create a new network. @ network: The name of the network.
+[DOCKER-NETWORK] docker network rm <network> ;; Remove one or more networks. @ network: The name of the network. #delete
+[DOCKER-NETWORK] docker network connect <network> <container> ;; Connect a container to a network. @ network: The name of the network. @ container: The ID or name of the container.
+[DOCKER-NETWORK] docker network disconnect <network> <container> ;; Disconnect a container from a network. @ network: The name of the network. @ container: The ID or name of the container.
+[DOCKER-VOLUME] docker volume ls ;; List all volumes. #list
+[DOCKER-VOLUME] docker volume create <volume> ;; Create a new volume. @ volume: The name of the volume.
+[DOCKER-VOLUME] docker volume rm <volume> ;; Remove one or more volumes. @ volume: The name of the volume. #delete
+[DOCKER-VOLUME] docker volume inspect <volume> ;; Display detailed information on one or more volumes. @ volume: The name of the volume.
+[DOCKER-CLEANUP] docker system prune -a ;; Remove all unused containers, networks, images, and volumes. ⚠️ DANGER: This is a destructive cleanup. #cleanup #danger
+[DOCKER-CLEANUP] docker stop $(docker ps -q) ;; Stop all running containers. ⚠️ DANGER: This stops everything! #cleanup #danger
+[DOCKER-CLEANUP] docker volume prune ;; Remove all unused local volumes. ⚠️ DANGER: Irreversible cleanup. #cleanup #danger
 [DOCKER] docker rename <old> <new> ;; Rename a container @ old: Current name @ new: New name
-[DOCKER] docker cp <local_path> <container_name>:<remote_path> ;; Copy file FROM Host TO Container @ local_path: Source path @ container_name: Target container @ remote_path: Destination in container
-[DOCKER] docker cp <container_name>:<remote_path> <local_path> ;; Copy file FROM Container TO Host @ container_name: Source container @ remote_path: Path in container @ local_path: Destination on host

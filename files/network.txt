@@ -1,0 +1,29 @@
+🌐 Network
+[PING] ping <host> ;; Send ICMP ECHO_REQUEST packets to a host to check connectivity. @ host: The IP address or domain name to ping (e.g., `8.8.8.8`).
+[PING] ping -c <count> <host> ;; Stop after sending a specific number of packets. @ count: The number of packets to send. @ host: The host to ping.
+[PING] ping -i <interval> <host> ;; Set the interval in seconds between sending each packet. @ interval: The interval in seconds. @ host: The host to ping.
+
+[NET-INFO] ip addr ;; (Linux) Show addresses for all network interfaces. #ip
+[NET-INFO] ifconfig ;; (macOS/BSD) Display the configuration of network interfaces. #ip
+[NET-INFO] ss -tuln ;; Display all listening TCP and UDP sockets without resolving names. #socket #listening
+[NET-INFO] netstat -tuln ;; An alternative to `ss`, shows listening ports. #socket #listening
+[NET-INFO] arp -a ;; Display the local ARP cache, mapping IP addresses to MAC addresses. #mac
+
+[DNS] nslookup <domain> ;; Query Internet name servers for DNS information. @ domain: The domain name to look up.
+[DNS] dig <domain> ;; A more advanced DNS lookup utility. @ domain: The domain name to look up.
+[DNS] host <domain> ;; A simple utility for performing DNS lookups. @ domain: The domain name to look up.
+
+[HTTP] curl <url> ;; Transfer data from or to a server, using one of the supported protocols (HTTP, HTTPS, FTP, etc.). @ url: The URL to retrieve.
+[HTTP] curl -I <url> ;; Fetch the headers only from a URL. @ url: The URL to fetch headers from. #headers
+[HTTP] curl -L <url> ;; Follow redirects in the response. @ url: The URL to fetch, following redirects.
+[HTTP] wget <url> ;; A non-interactive tool for downloading files from the web. @ url: The URL of the file to download.
+[HTTP] wget -c <url> ;; Continue a partially downloaded file. @ url: The URL of the file.
+
+[TRACE] traceroute <host> ;; Print the route packets take to a network host. @ host: The destination host.
+[TRACE] mtr <host> ;; A network diagnostic tool that combines ping and traceroute. @ host: The destination host.
+
+[SOCKET] lsof -i :<port> ;; List open files and the processes that opened them, filtered by port. @ port: The port number to filter by (e.g., `80`).
+[SOCKET] fuser -k <port>/tcp ;; Kill the process that is using a specific TCP port. @ port: The TCP port number. #kill #danger
+
+[WIFI] nmcli dev wifi ;; (Linux with NetworkManager) List available Wi-Fi networks.
+[WIFI] iwlist <interface> scan ;; (Linux) Scan for available wireless networks on a specific interface. @ interface: The wireless interface name (e.g., `wlan0`).
