@@ -1,4 +1,5 @@
 # 🧠 howdo
+![howdo Demo](assets/howdo_demo.gif)
 
 `howdo` is a context-aware command runner for Zsh. It transforms your flat cheat sheets into interactive tools that prompt for variables, remember your input history, and provide safety checks for destructive commands.
 
