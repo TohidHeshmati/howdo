@@ -13,10 +13,14 @@
 [FS] find <path> -type f -size +<size> ;; Find files larger than a specific size. @ path: The directory to start searching from. @ size: The size (e.g., `100M` for 100MB). #search #disk
 [FS] stat <file> ;; Display file or file system status, including permissions and timestamps. @ file: The file to inspect.
 [FS] tree -L <level> ;; Display the directory structure as a tree. @ level: The depth of the tree to display.
+[FS] md5sum <file> ;; Calculate the MD5 checksum of a file. @ file: The file to process.
+[FS] sha256sum <file> ;; Calculate the SHA256 checksum of a file. @ file: The file to process.
 
 [PROCESS] ps aux ;; List all running processes on the system. #list
+[PROCESS] ps x ;; List all processes owned by the current user. #list
 [PROCESS] top ;; Display a real-time, dynamic view of running processes and system resources. #performance
 [PROCESS] htop ;; An interactive process viewer, an alternative to `top`.
+[PROCESS] btop ;; A modern and interactive resource monitor that shows usage and stats for processors, memory, disks, network, and processes. #performance
 [PROCESS] kill <pid> ;; Send a signal to a process to terminate it. @ pid: The Process ID to terminate. #danger
 [PROCESS] pkill <process_name> ;; Kill processes by name. @ process_name: The name of the process to kill. #danger
 [PROCESS] killall <process_name> ;; Kill all processes with a given name. @ process_name: The name of the process to kill. #danger

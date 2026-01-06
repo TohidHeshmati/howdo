@@ -1,0 +1,38 @@
+🛠️ Tools
+[FZF] fzf ;; A command-line fuzzy finder. Pipe a list of items to it and it will open an interactive finder.
+[FZF] fzf --preview 'bat --color=always {}' ;; Use bat to preview files when searching with fzf.
+[FZF-GIT] git log | fzf ;; Interactively search through git logs.
+
+[RG] rg "<pattern>" <path> ;; A faster, more user-friendly alternative to grep. @ pattern: The text or regex to search for. @ path: The directory or file to search.
+[RG] rg -i "<pattern>" <path> ;; Case-insensitive search. @ pattern: The text or regex to search for. @ path: The directory or file to search.
+[RG] rg -l "<pattern>" <path> ;; List files containing the pattern. @ pattern: The text or regex to search for. @ path: The directory or file to search.
+
+[FD] fd "<pattern>" <path> ;; A simple, fast and user-friendly alternative to find. @ pattern: The pattern to search for. @ path: The directory to search in.
+[FD] fd -e <ext> "<pattern>" <path> ;; Search for a pattern in files with a specific extension. @ ext: The file extension. @ pattern: The pattern to search for. @ path: The directory to search in.
+
+[ZOXIDE] z <directory_name> ;; A smarter `cd` command that learns your habits. Jumps to a directory after a few uses. @ directory_name: Part of the name of a frequently used directory.
+[ZOXIDE] zi <directory_name> ;; Interactively select a directory to jump to. @ directory_name: Part of the name of a frequently used directory.
+
+[JQ] jq '.' <file.json> ;; A lightweight and flexible command-line JSON processor. Pretty-prints a JSON file. @ file.json: The JSON file to process.
+[JQ] jq '.key' <file.json> ;; Access a specific key in a JSON object. @ key: The key to access. @ file.json: The JSON file to process.
+[JQ] jq '.[0]' <file.json> ;; Access the first element of a JSON array. @ file.json: The JSON file to process.
+
+[YAZI] yazi ;; A terminal file manager.
+[YAZI-KEYBINDINGS] ? ;; Open the full Help/Keybind menu in Yazi.
+[YAZI-KEYBINDINGS] q ;; Quit Yazi.
+[YAZI-KEYBINDINGS] h j k l ;; Navigate (Left, Down, Up, Right).
+[YAZI-KEYBINDINGS] y / x / p ;; Copy / Cut / Paste.
+
+[FFMPEG] ffmpeg -i <input> <output> ;; A complete, cross-platform solution to record, convert and stream audio and video. @ input: The input file (e.g., `video.mp4`). @ output: The output file (e.g., `audio.mp3`).
+[FFMPEG] ffmpeg -i <input> -vn -ab 128k <output.mp3> ;; Extract audio from a video file. @ input: The input video file. @ output.mp3: The output audio file.
+
+[IMAGEMAGICK] convert <input> <output> ;; A suite for image manipulation. Converts an image from one format to another. @ input: The input image file. @ output: The output image file.
+[IMAGEMAGICK] convert <input> -resize 50% <output> ;; Resize an image. @ input: The input image file. @ output: The output image file.
+
+[SEVENZIP] 7z a <archive.7z> <file_or_dir> ;; (7-Zip) Add files to a new archive. @ archive.7z: The name of the archive to create. @ file_or_dir: The file or directory to compress.
+[SEVENZIP] 7z x <archive.7z> ;; (7-Zip) Extract files from an archive with their full paths. @ archive.7z: The archive to extract.
+
+[POPPLER] pdftotext <file.pdf> - ;; (Poppler) Extract text from a PDF file and output to stdout. @ file.pdf: The PDF file to process.
+[POPPLER] pdfimages -j <file.pdf> <output_prefix> ;; (Poppler) Extract images from a PDF file as JPEGs. @ file.pdf: The PDF file to process. @ output_prefix: The prefix for the output image files.
+
+[RESVG] rsvg-convert -o <output.png> <input.svg> ;; (resvg) A fast SVG rendering library. Converts an SVG to a PNG. @ output.png: The output PNG file. @ input.svg: The input SVG file.
