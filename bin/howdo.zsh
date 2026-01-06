@@ -89,3 +89,10 @@ howadd() {
 
     echo "$ENTRY" >> "$FILE_PATH" && echo "✅ Added to $(basename $FILE_PATH)"
 }
+
+howdo_update() {
+    echo "Checking for updates in $HOWDO_ROOT..."
+    (cd "$HOWDO_ROOT" && git pull)
+    source "$HOWDO_ROOT/bin/howdo.zsh"
+    echo "✅ howdo updated and reloaded."
+}
