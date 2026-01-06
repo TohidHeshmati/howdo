@@ -14,16 +14,33 @@ for cmd in fzf bat ggrep; do
     fi
 done
 
-# 2. Get the current directory (where they cloned the repo)
-INSTALL_PATH=$(pwd)
-SOURCE_LINE="source $INSTALL_PATH/bin/howdo.zsh"
+# 2. Handle Directory & Updates
+# We want to install to ~/.howdo by default
+TARGET_DIR="$HOME/.howdo"
+
+if [ -d "$TARGET_DIR" ]; then
+    echo -e "${BLUE}🔄 Found existing installation at $TARGET_DIR. Pulling latest changes...${NC}"
+    cd "$TARGET_DIR" && git pull
+else
+    # If the user is ALREADY inside the howdo folder they just cloned,
+    # we move it to the home directory to stay organized.
+    if [[ "$(basename $(pwd))" == "howdo" ]]; then
+        echo "📦 Moving current folder to $TARGET_DIR"
+        cd .. && mv howdo "$TARGET_DIR"
+    else
+        echo "📥 Cloning howdo to $TARGET_DIR..."
+        git clone https://github.com/TohidHeshmati/howdo.git "$TARGET_DIR"
+    fi
+fi
 
 # 3. Create history file if it doesn't exist
 touch "$HOME/.howdo_history"
 
 # 4. Add to .zshrc if not already there
+SOURCE_LINE="source $TARGET_DIR/bin/howdo.zsh"
+
 if grep -q "howdo.zsh" "$HOME/.zshrc"; then
-    echo -e "${GREEN}✅ howdo is already in your .zshrc${NC}"
+    echo -e "${GREEN}✅ howdo is already referenced in your .zshrc${NC}"
 else
     echo -e "\n# howdo - Interactive Cheat Sheets\n$SOURCE_LINE" >> "$HOME/.zshrc"
     echo -e "${GREEN}✅ Added howdo to your .zshrc${NC}"
