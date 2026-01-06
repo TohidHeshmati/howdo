@@ -8,14 +8,13 @@
 
 <p>howdo transforms flat cheat sheets into interactive tools with variable injection, history support, and safety guards.</p>
 
-<a href="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d" target="_blank">
-  <img src="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d.svg" width="700" alt="howdo demo" />
-</a>
+<img src="assets/howdo_demo.gif" width="750" alt="howdo demo" />
 
-<p><i>(Click the image above to watch the interactive demo)</i></p>
+<p><i>Effortlessly run complex commands without leaving your terminal.</i></p>
 
 </div>
 
+---
 ---
 
 ---
