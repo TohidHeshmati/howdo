@@ -15,6 +15,8 @@
 [FS] tree -L <level> ;; Display the directory structure as a tree. @ level: The depth of the tree to display.
 [FS] md5sum <file> ;; Calculate the MD5 checksum of a file. @ file: The file to process.
 [FS] sha256sum <file> ;; Calculate the SHA256 checksum of a file. @ file: The file to process.
+[FS] lsblk ;; List block devices (disks and partitions) in a visual tree. #disk
+[FS] ncdu ;; A much better, interactive version of 'du' to find what's eating your space. #disk
 
 [PROCESS] ps aux ;; List all running processes on the system. #list
 [PROCESS] ps x ;; List all processes owned by the current user. #list
@@ -53,3 +55,10 @@
 [PACKAGE] apt-get remove <package> ;; (Debian/Ubuntu) Remove a package. @ package: The name of the package to remove.
 [PACKAGE] yum install <package> ;; (CentOS/RHEL) Install a new package. @ package: The name of the package to install.
 [PACKAGE] yum remove <package> ;; (CentOS/RHEL) Remove a package. @ package: The name of the package to remove.
+
+[HW] vcgencmd measure_temp ;; (Raspberry Pi) Get the current CPU temperature. #health
+[HW] vcgencmd get_throttled ;; (Raspberry Pi) Check if the Pi has throttled due to low voltage or heat. #health
+[HW] lscpu ;; Display detailed CPU architecture info (cores, speed, etc.).
+
+[LOG] journalctl -u <service> -f ;; Follow logs for a specific background service. @ service: The name of the service (e.g., `docker`).
+[LOG] dmesg -T | tail -20 ;; Show the last 20 kernel messages (useful for hardware/USB errors). #debug

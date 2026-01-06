@@ -1,0 +1,2 @@
+[SEARCH] fd <pattern> ;; A fast, user-friendly alternative to 'find'. @ pattern: File name pattern.
+[SEARCH] rg "<pattern>" ;; Ripgrep: The fastest way to search for text inside files. @ pattern: Search string.

@@ -27,3 +27,13 @@
 
 [WIFI] nmcli dev wifi ;; (Linux with NetworkManager) List available Wi-Fi networks.
 [WIFI] iwlist <interface> scan ;; (Linux) Scan for available wireless networks on a specific interface. @ interface: The wireless interface name (e.g., `wlan0`).
+
+[SCAN] nmap -sn <network_range> ;; Scan the network for live hosts without port scanning. @ network_range: e.g., `192.168.1.0/24`. #discovery
+[SCAN] nmap -sV <host> ;; Scan a host to determine service/version info on open ports. @ host: Target IP. #security
+
+[SNIFF] sudo tcpdump -i <interface> -n port <port> ;; Capture traffic on a specific port. @ interface: e.g., `en0` or `eth0`. @ port: e.g., `80`. #danger
+[SNIFF] sudo tcpdump -A -i <interface> ;; Capture traffic and show it in ASCII (readable text). @ interface: e.g., `eth0`.
+
+[FW] sudo ufw status ;; Check the status of the Uncomplicated Firewall.
+[FW] sudo ufw allow <port> ;; Open a specific port. @ port: e.g., `8000`.
+[FW] sudo iptables -L -n -v ;; List all active IPtables rules with details. #security
