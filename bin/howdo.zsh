@@ -19,16 +19,17 @@ howdo() {
     touch "$HIST_FILE"
 
     # 1. Select the command
-    # Changed grep to look in $HOWDO_FILES
     local selected=$(cd "$CHEAT_DIR" && grep -H ".*" *.txt | fzf --ansi \
         --header "🧠 [ENTER] Run | [CTRL-E] Edit | [CTRL-A] Add" \
         --delimiter ':' --with-nth '2..' \
         --layout=reverse --height=80% --border=rounded \
+        --no-hscroll \
         --margin=1,2 --padding=1 --info=inline --prompt="⚡️ " \
         --preview "echo {} | cut -d: -f2- | sed 's/;;/\n\n💡 EXPLANATION:/' | sed 's/@/\n\n📝 TIPS:/' | sed 's/??/\n\n🎓 DEEP DIVE:/' | bat --style=grid --color=always -l bash" \
-        --preview-window=right:55%:wrap \
+        --preview-window="right:55%:wrap:hidden" \
         --bind "ctrl-e:execute(cd $CHEAT_DIR && nano \$(echo {} | cut -d: -f1))" \
-        --bind "ctrl-a:execute-silent(read -p 'Add New Cheat: ' entry && howadd \"\$entry\")+reload(cd $CHEAT_DIR && grep -H '.*' *.txt)")
+        --bind "ctrl-a:execute-silent(read -p 'Add New Cheat: ' entry && howadd \"\$entry\")+reload(cd $CHEAT_DIR && grep -H '.*' *.txt)" \
+        --bind "ctrl-p:toggle-preview")
 
     if [ -n "$selected" ]; then
         local full_line=$(echo "$selected" | cut -d: -f2-)
@@ -38,8 +39,7 @@ howdo() {
         # 2. Variable replacement loop
         while [[ "$raw_cmd" =~ "<([^>]+)>" ]]; do
             local var_name="${match[1]}"
-            local tip=$(echo "$explanation" | ggrep -oP "(?<=@ $var_name: )[^#@]+" 2>/dev/null | sed 's/[[:space:]]*$//')
-            local last_vals=$(grep "^$var_name=" "$HIST_FILE" | cut -d'=' -f2- | tail -n 15 | tac | awk '!seen[$0]++' | head -n 3 | tr '\n' ' ' | sed 's/ $//')
+            local tip=$(echo "$explanation" | $_GREP -oP "(?<=@ $var_name: )[^#@]+" 2>/dev/null | sed 's/[[:space:]]*$//')            local last_vals=$(grep "^$var_name=" "$HIST_FILE" | cut -d'=' -f2- | tail -n 15 | tac | awk '!seen[$0]++' | head -n 3 | tr '\n' ' ' | sed 's/ $//')
             local default_val=$(grep "^$var_name=" "$HIST_FILE" | tail -n 1 | cut -d'=' -f2-)
 
             echo -e "\n\033[1;34mTarget: <$var_name>\033[0m"
