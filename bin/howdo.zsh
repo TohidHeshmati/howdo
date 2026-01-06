@@ -26,7 +26,7 @@ howdo() {
         --no-hscroll \
         --margin=1,2 --padding=1 --info=inline --prompt="⚡️ " \
         --preview "echo {} | cut -d: -f2- | sed 's/;;/\n\n💡 EXPLANATION:/' | sed 's/@/\n\n📝 TIPS:/' | sed 's/??/\n\n🎓 DEEP DIVE:/' | bat --style=grid --color=always -l bash" \
-        --preview-window="right:55%:wrap:hidden" \
+        --preview-window="right:55%:wrap" \
         --bind "ctrl-e:execute(cd $CHEAT_DIR && nano \$(echo {} | cut -d: -f1))" \
         --bind "ctrl-a:execute-silent(read -p 'Add New Cheat: ' entry && howadd \"\$entry\")+reload(cd $CHEAT_DIR && grep -H '.*' *.txt)" \
         --bind "ctrl-p:toggle-preview")
