@@ -8,11 +8,21 @@ NC='\033[0m' # No Color
 echo -e "${BLUE}🚀 Installing howdo...${NC}"
 
 # 1. Check for dependencies
-for cmd in fzf bat ggrep; do
-    if ! command -v $cmd &> /dev/null && ! command -v grep &> /dev/null; then
-        echo "⚠️  Warning: $cmd is not installed. Please install it for the best experience."
-    fi
-done
+echo -e "${BLUE}Checking for dependencies...${NC}"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    for cmd in fzf bat rg; do
+        if ! command -v $cmd &> /dev/null; then
+            echo "⚠️  Warning: $cmd is not installed. Please install it for the best experience."
+        fi
+    done
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    for cmd in fzf bat ggrep; do
+        if ! command -v $cmd &> /dev/null; then
+            echo "⚠️  Warning: $cmd is not installed. Please install it for the best experience."
+        fi
+    done
+fi
+
 
 # 2. Handle Directory & Updates
 # We want to install to ~/.howdo by default
