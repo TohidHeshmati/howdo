@@ -1,0 +1,14 @@
+☸️ Kubernetes
+[K8S] kubectl get all -A ;; See everything running in the whole cluster #view
+[K8S] kubectl get pods -n <namespace> ;; List all pods in a specific room (namespace) #view
+[K8S] kubectl describe pod <pod_name> ;; Debug why a pod is failing or stuck #debug
+[K8S] kubectl logs -f <pod_name> ;; Tail the live logs of a pod #debug
+[K8S] kubectl logs -f <pod_name> -c <container_name> ;; Tail logs of a specific container inside a pod #debug
+[K8S] kubectl exec -it <pod_name> -- /bin/bash ;; Jump inside a running pod to run commands #shell
+[K8S] kubectl config get-contexts ;; See which cluster or cloud environment you are currently using #config
+[K8S] kubectl config use-context <context_name> ;; Switch between different clusters (e.g., Prod vs Dev) #config
+[K8S] kubectl port-forward <pod_name> <local_port>:<pod_port> ;; Bridge a pod's port to your Mac so you can visit it in browser #network
+[K8S] kubectl get secret <name> -o jsonpath='{.data.<key>}' | base64 --decode ;; Get and decode a specific secret value #security
+[K8S] kubectl apply -f <file_name>.yaml ;; Tell K8S to create or update resources based on a file #deploy
+[K8S] kubectl delete pod <pod_name> ;; Kill a pod (K8S will usually restart a new one automatically) #cleanup
+[K8S] kubectl top pod ;; See which pods are using the most CPU and RAM #monitor

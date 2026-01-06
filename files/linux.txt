@@ -1,0 +1,116 @@
+🐧 Linux Essentials:
+[FILE] find . -type f -size +100M | Find files larger than 100MB
+[FILE] ls -1 | wc -l | Count number of files in current directory
+[FILE] stat -c "%a %n" * | Show numeric permissions (e.g., 755)
+[PERM] chmod 644 *.txt && chmod 755 *.sh | Fix standard vs script perms
+[TEXT] wc -l | Count number of lines in a file or output
+[TEXT] sort -n | Sort numerically (handles 1, 2, 10)
+[TEXT] sort | uniq -c | sort -nr | Top List: Find most frequent items
+[TEXT] grep -r "pattern" . | Recursive search for text in folder
+[SYS] uptime | Quick check of system load averages
+[SYS] free -h | Show human-readable memory usage
+[PROC] ps aux | grep [name] | Find PID of a program
+[NET] curl -s https://ipapi.co/json/ | Get public IP and location
+[FILE] find-big: find . -type f -size +100M | Find files larger than 100MB
+[FILE] count-files: ls -1 | wc -l | Count number of files in current directory
+[FILE] permissions: stat -c "%a %n" * | Show numeric permissions (e.g., 755) of files
+[PERM] fix-privs: chmod 644 *.txt && chmod 755 *.sh | Standard file vs script permissions
+[TEXT] sort-uniq: sort file.txt | uniq -c | count occurrences of unique lines
+[TEXT] live-logs: tail -f /var/log/syslog | Watch logs update in real-time
+[SYS] load: uptime | Quick check of system load averages
+[SYS] free: free -h | Show human-readable memory usage (Linux only)
+
+[SCRIPT] cmd1 ; cmd2  | Run 1 then 2 (sequential)
+[SCRIPT] cmd1 && cmd2 | Run 2 ONLY if 1 succeeds (conditional)
+[SCRIPT] cmd1 || cmd2 | Run 2 ONLY if 1 fails (error fallback)
+
+# --- WC, SORT, & UNIQ (Data Processing) ---
+[TEXT] wc -l | Count number of lines in a file or output
+[TEXT] wc -w | Count number of words in a file
+[TEXT] sort | Sort lines alphabetically
+[TEXT] sort -n | Sort numerically (correctly handles 1, 2, 10)
+[TEXT] sort -r | Reverse the sort order (Z-A or 10-1)
+[TEXT] sort -k [n] | Sort by the nth column (e.g., sort -k 2)
+[TEXT] uniq | Remove adjacent duplicate lines (always sort first!)
+[TEXT] uniq -c | Count occurrences of each line (shows frequency)
+[TEXT] uniq -d | Show ONLY the lines that are duplicated
+[TEXT] uniq -u | Show ONLY the lines that are unique (no duplicates)
+[TEXT] sort | uniq -c | sort -nr | The "Golden Combo": Finds most frequent items
+
+# --- GREP (Searching Text) ---
+[TEXT] grep "pattern" [file] | Search for a string in a specific file
+[TEXT] grep -i "pattern" | Search case-insensitive (ignores Capitalization)
+[TEXT] grep -v "pattern" | Invert match: show lines that do NOT contain pattern
+[TEXT] grep -r "pattern" . | Recursive search: find pattern in all files in current folder
+[TEXT] grep -l "pattern" * | List only the filenames that contain the pattern
+[TEXT] grep -n "pattern" | Show line numbers alongside the matches
+[TEXT] grep -E "A|B" | Extended Regex: search for "A" OR "B"
+[TEXT] grep -A 2 "pattern" | Show matches plus 2 lines AFTER the match
+[TEXT] grep -B 2 "pattern" | Show matches plus 2 lines BEFORE the match
+[TEXT] grep -C 2 "pattern" | Context: show 2 lines before AND after the match
+
+
+[NET] ip addr | Find your Raspberry Pi's local IP address
+[NET] sudo blkid | Identify the UUID of your connected Hard Drive
+[NET] sudo mount /dev/sdb1 /mnt/nas | Manually attach the drive to a folder
+[NET] tailscale status | Check if your private tunnel is active
+
+[YAZI] ? | Open the full Help/Keybind menu
+[YAZI] g (wait) | Show "Go-to" destination shortcuts
+[YAZI] m (wait) | Show "Mark" (bookmark) shortcuts
+[YAZI] q | Quit (Exit back to terminal)
+[YAZI] i | Large info/help panel for current file
+[YAZI] h j k l | Navigate (Left, Down, Up, Right)
+[YAZI] y / x / p | Copy / Cut / Paste
+[YAZI] a / r | Create new / Rename
+[YAZI] f / / | Filter current view / Search subfolders
+[YAZI] . | Toggle hidden files
+[YAZI] ctrl + f | Scroll preview window down
+
+[DISK] dd if=/dev/sdb of=backup.img bs=4M status=progress | Create image of drive sdb
+[DISK] dd if=backup.img of=/dev/sdb bs=4M status=progress | Restore image to drive sdb
+[DISK] dd if=/dev/zero of=/dev/sdb bs=1M | Wipe drive sdb (Fill with zeros)
+[DISK] lsblk | List all block devices (Use this to find if /dev/sdb is the right drive!)
+
+[LANG] trans :fa "text" | Translate to Persian (Farsi)
+[LANG] trans fa:en "متن" | Translate Farsi to English
+[LANG] trans -v :fa "word" | Detailed dictionary view for Persian
+[LANG] trans -play :fa "سلام" | Listen to the Persian pronunciation
+
+[NET] trans :es "text" | Translate text to Spanish
+[NET] trans -b :en "texto" | Brief translation (result only)
+[NET] trans -shell en:de | Start interactive translation session
+[NET] trans -speak :fr "Bonjour" | Translate and play the audio (TTS)
+
+[SHELL] brew install fish | Install the Friendly Interactive Shell
+[SHELL] fish -v | Check Fish version
+[SHELL] set -x NAME value | How to set an environment variable in Fish
+
+[NET] ping 1.1.1.1 | Basic check: Is my internet connection alive?
+[NET] ping -c 4 192.168.1.10 | Ping only 4 times (prevents infinite loop)
+[NET] ping -a 192.168.1.10 | Audible ping: Beeps when the server responds (Great for hardware testing)
+[NET] ping -i 0.2 8.8.8.8 | Fast ping: Send packets every 0.2s (Requires sudo)
+[NET] ping -s 1500 8.8.8.8 | Send large packets: Test if your network handles MTU/large data well
+[NET] ping raspberrypi.local | Ping via mDNS (Find your Pi without knowing the IP)
+
+[NET] traceroute [domain] | Map the path to a server (uses UDP/ICMP)
+[NET] traceroute -I [domain] | Use ICMP Echo (sometimes works when default doesn't)
+[NET] mtr [domain] | "Live" traceroute: stays open and updates latency in real-time
+[NET] nslookup [domain] | Quickly see all IP addresses associated with a domain
+
+[MAC-TO-LINUX] ifconfig -> ip a  | Show network interfaces
+[MAC-TO-LINUX] pbcopy < file.txt | Copy file content to clipboard (Linux uses xclip)
+[MAC-TO-LINUX] brew -> apt/yum   | Package managers
+[NET] lo0 | The "Loopback" interface (127.0.0.1) - Your computer talking to itself
+[NET] en0 | Usually your Wi-Fi interface on a Mac
+
+[NET] arp -a | Show the local IP-to-MAC mapping table
+[NET] MAC Address | The "Permanent" physical ID of a network card (Layer 2)
+[NET] Broadcast (ff:ff:ff:ff:ff:ff) | Sending a message to every device in the room
+[NET] ARP Spoofing | A security attack where a hacker "tricks" your ARP table to steal data
+
+[NET] curl ifconfig.me | Find my Public IP address from the terminal
+[NET] curl icanhazip.com | Find my Public IP address from the terminal
+[NET] Dynamic IP | A public IP that changes periodically (Standard for home internet)
+[NET] Static IP | A public IP that never changes (Standard for servers/businesses)
+[NET] DDNS (Dynamic DNS) | A service that gives your changing home IP a permanent name (e.g., mynas.hopto.org)

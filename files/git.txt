@@ -1,0 +1,37 @@
+🌿 Git
+[GIT-INIT] git init ;; Initialize an existing directory as a Git repository #init
+[GIT-INIT] git clone <url> ;; Retrieve an entire repository from a hosted location @ url: The Git URL from GitHub or GitLab (HTTPS or SSH) #init
+[GIT-CONFIG] git config --global user.name "<name>" ;; Set name for commit credit @ name: Your full name for commit signatures #config
+[GIT-CONFIG] git config --global user.email "<email>" ;; Set email for commit history @ email: The email address associated with your GitHub account #config
+[GIT-STAGE] git status ;; Show modified files in working directory vs staged #stage
+[GIT-STAGE] git add <file> ;; Add a file snapshot to the next commit (stage) @ file: Use '.' to add everything or enter specific file path #stage
+[GIT-STAGE] git reset <file> ;; Unstage a file but keep its local changes @ file: The path of the file you want to remove from staging #stage
+[GIT-DIFF] git diff ;; Show changes in working directory not yet staged #diff
+[GIT-DIFF] git diff --staged ;; Show changes in stage not yet committed #diff
+[GIT-COMMIT] git commit -m "<msg>" ;; Commit staged content as a new snapshot @ msg: A clear, present-tense description (e.g., 'Add login logic') #commit
+[GIT-BRANCH] git branch ;; List branches (* indicates current active branch) #branch
+[GIT-BRANCH] git branch <name> ;; Create a new branch at the current commit @ name: The name of the new branch (e.g., 'feature-header') #branch
+[GIT-BRANCH] git checkout <name> ;; Switch to another branch @ name: The name of the branch you want to move to #branch
+[GIT-MERGE] git merge <branch> ;; Merge specified branch into the current one @ branch: The 'source' branch you want to pull into your current branch #merge
+[GIT-LOG] git log ;; Show commit history for the active branch #log
+[GIT-REMOTE] git remote add <alias> <url> ;; Map a remote URL to a local alias @ alias: Usually 'origin' @ url: The remote repository URL #remote
+[GIT-REMOTE] git fetch <alias> ;; Download all branches from a remote alias @ alias: Usually 'origin' #remote
+[GIT-REMOTE] git push <alias> <branch> ;; Transmit local commits to remote @ alias: Usually 'origin' @ branch: The branch you are pushing (e.g., 'main') #remote
+[GIT-REMOTE] git pull ;; Fetch and merge commits from tracking remote #remote
+[GIT-FILE] git rm <file> ;; Delete file from project and stage the removal @ file: The file to be deleted from disk and Git #file
+[GIT-FILE] git mv <old> <new> ;; Move/Rename a file path and stage the move @ old: Current file path @ new: Desired new path or name #file
+[GIT-STASH] git stash ;; Temporarily store all modified tracked files #stash
+[GIT-STASH] git stash list ;; List stack-order of stashed changes #stash
+[GIT-STASH] git stash pop ;; Restore changes from the top of the stash #stash
+[GIT-HISTORY] git rebase <branch> ;; Apply current branch commits ahead of another @ branch: The base branch you want to re-stack your work on top of #history
+[GIT-HISTORY] git reset --hard <commit> ;; Wipe worktree and reset to specific commit @ commit: The SHA-1 hash of the commit you want to return to #history
+[GIT-INSPECT] git log <branchB>..<branchA> ;; Show commits in A that are not in B @ branchB: The base branch @ branchA: The branch with new changes #inspect
+[GIT-INSPECT] git show <SHA> ;; Show any git object in human-readable format @ SHA: The specific commit hash or object ID #inspect
+[GIT] git status ;; Show current branch status #status
+[GIT] git checkout -b <branch_name> ;; Create and switch to new branch @ branch_name: Use a descriptive name like 'fix-bug-123' #flow
+[GIT] git commit --amend ;; Fix the last commit message or add forgotten files #fix
+[GIT-MERGE] git merge <branch> ;; Merge work into current branch @ branch: the name of the feature branch you want to pull in #merge
+[GIT-REMOTE] git remote add <alias> <url> ;; Connect to a server @ alias: usually 'origin' @ url: the link from GitHub #remote
+[GIT-BRANCH] git checkout -b <name> ;; Create and switch to a new branch @ name: use lowercase and dashes like 'feature-login' #flow
+[GIT-HISTORY] git reset --hard <commit> ;; Wipe all changes and go back in time @ commit: the SHA code (e.g. a1b2c3d) #danger
+[GIT-CONFIG] git config --global user.email "<email>" ;; Set your identity @ email: use the one linked to your GitHub account #config

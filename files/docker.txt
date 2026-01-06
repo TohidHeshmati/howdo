@@ -1,0 +1,13 @@
+🐳 Docker
+[DOCKER] docker stats ;; Live stream of container resource usage (CPU/RAM) #sys
+[DOCKER] docker exec -it <id> /bin/bash ;; Enter a running container @ id: The container ID or name
+[DOCKER] docker logs -f --tail 100 <id> ;; Follow the last 100 lines of logs @ id: The container ID or name
+[DOCKER] docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <id> ;; Get container IP @ id: The container ID or name #net
+[DOCKER] docker stop $(docker ps -q) ;; Stop all running containers ;; ⚠️ DANGER: This stops everything!
+[DOCKER] docker volume prune ;; Remove all unused local volumes ;; ⚠️ DANGER: Irreversible cleanup
+[DOCKER] docker start <name> && docker exec -it <name> /bin/bash ;; Resume an existing container @ name: The container name
+[DOCKER] docker ps -a ;; See all containers (including stopped ones) #list
+[DOCKER] docker rm -f <name> ;; Delete a container by name so you can reuse it @ name: The container name
+[DOCKER] docker rename <old> <new> ;; Rename a container @ old: Current name @ new: New name
+[DOCKER] docker cp <local_path> <container_name>:<remote_path> ;; Copy file FROM Host TO Container @ local_path: Source path @ container_name: Target container @ remote_path: Destination in container
+[DOCKER] docker cp <container_name>:<remote_path> <local_path> ;; Copy file FROM Container TO Host @ container_name: Source container @ remote_path: Path in container @ local_path: Destination on host
