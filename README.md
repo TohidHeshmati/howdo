@@ -1,18 +1,22 @@
+<div align="center">
+
 # 🧠 howdo
 **The context-aware command runner for Zsh**
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/TohidHeshmati/howdo/blob/main/LICENSE)
 [![Zsh](https://img.shields.io/badge/shell-zsh-orange.svg)](https://www.zsh.org/)
 
 <p>howdo transforms flat cheat sheets into interactive tools with variable injection, history support, and safety guards.</p>
 
-<a href="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d">
-  <img src="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d.svg" width="700"/>
+<a href="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d" target="_blank">
+  <img src="https://asciinema.org/a/7GV5o4taYJEtM97pXYzUm3b4d.svg" width="700" alt="howdo demo" />
 </a>
 
-*(Click the image above to watch the interactive demo)*
+<p><i>(Click the image above to watch the interactive demo)</i></p>
 
 </div>
+
+---
 
 ---
 
