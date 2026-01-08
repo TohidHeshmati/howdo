@@ -58,13 +58,14 @@ howdo() {
 
         # 3. Safety Check
         if [[ "$raw_cmd" =~ "delete|rm|reset|push|prune" ]]; then
-            echo -e "\n\033[1;33m⚠️  DANGER ZONE: Destructive action detected.\033[0m"
-            echo -n "Append --dry-run? (y/n): "
+            echo -e "\n\033[1;31m🛑 DANGER: Destructive command detected!\033[0m"
+            echo -e "\033[1;37mCommand: $raw_cmd\033[0m"
+            echo -n "Are you sure you want to proceed? (y/n): "
             read -k 1 choice
             echo ""
-            if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-                raw_cmd="$raw_cmd --dry-run"
-                echo -e "\033[1;32m🛡️ Dry-run appended.\033[0m"
+            if [[ "$choice" != "y" && "$choice" != "Y" ]]; then
+                echo -e "\033[1;32m🛡️  Action aborted by user.\033[0m"
+                return 1
             fi
         fi
 

@@ -62,3 +62,33 @@
 
 [LOG] journalctl -u <service> -f ;; Follow logs for a specific background service. @ service: The name of the service (e.g., `docker`).
 [LOG] dmesg -T | tail -20 ;; Show the last 20 kernel messages (useful for hardware/USB errors). #debug
+
+[FILE] find <name> | find . -name "*<name>*" ;; Search for files by name in current directory. @ name: The filename or pattern to search for. #find #search
+[FILE] stat <file> ;; stat <file> ;; View detailed file metadata like inode and timestamps. @ file: The path to the file. #stat #metadata
+[FILE] find large | find . -type f -size +<size>M -exec ls -lh {} + ;; Find files larger than X Megabytes. @ size: Minimum size in MB. #find #storage
+[FILE] xargs rename | find . -name "*<old>*" | xargs -I {} mv {} <new> ;; Use xargs to rename files matching a pattern. @ old: pattern to match @ new: new filename #xargs #rename
+
+[SEARCH] grep text | grep -rnw . -e "<pattern>" ;; Search for specific text inside all files recursively. @ pattern: The string to look for. #grep #text
+[SEARCH] fuzzy history | history | fzf +s --tac | sed 's/^[ ]*[0-9]*[ ]*//' ;; Interactively search and run a previous command. #fzf #history
+[SEARCH] fuzzy file | fzf --preview 'bat --color=always {}' ;; Fuzzy find a file and preview its content. #fzf #preview
+
+[SEARCH] fuzzy file | fzf --preview 'bat --color=always {}' ;; Interactively search files with a live content preview. #fzf #search
+[FILE] find large | find . -type f -size +<size>M -exec ls -lh {} + | awk '{ print $9 ": " $5 }' ;; Find and list files larger than a specific size. @ size: Enter size in Megabytes (e.g. 100). #find #cleanup
+[FILE] metadata | stat <file_name> ;; Display detailed file status and metadata. @ file_name: Path to the file. #stat #metadata
+[SYSTEM] locate cmd | which <command_name> ;; Find the executable path of a specific command. @ command_name: e.g. python3 or brew. #which #path
+[SEARCH] grep text | grep -rnw . -e "<pattern>" ;; Search for text patterns recursively in the current directory. @ pattern: The string to search for. #grep #search
+[SEARCH] history | history | fzf +s --tac | sed 's/^[ ]*[0-9]*[ ]*//' ;; Search through your command history and run a selection. #fzf #history
+[PULSE] focus | pulse-focus ;; Toggle the block/unblock status of social media and Telegram. #pulse #focus
+[NET] ports | lsof -i -P -n | grep LISTEN ;; List all applications currently listening on network ports. #network #lsof
+[SYSTEM] kill fuzzy | ps -ef | fzf --header "Select process to kill" --height 40% | awk '{print $2}' | xargs kill -9 ;; Select a running process from a list and force-kill it. #fzf #kill #process
+[GIT] branch | git checkout $(git branch | fzf | tr -d '[:space:]*') ;; Interactively switch between local git branches. #git #fzf #branch
+[GIT] commits | git log --oneline --graph --color=always | fzf --ansi --preview 'git show --color=always {1}' ;; Browse git commit history with a live diff preview. #git #fzf #log
+
+
+[ZIP] gzip file | gzip <file> ;; Compresses a file into a .gz archive (removes original). @ file: Path to the file. #gzip #compress
+[ZIP] gunzip | gzip -d <file>.gz ;; Decompresses a .gz file back to its original state. @ file: The filename without .gz. #gzip #decompress
+[ZIP] gzip keep | gzip -c <file> > <file>.gz ;; Compresses a file but keeps the original source. @ file: Path to the file. #gzip #safe
+[ZIP] bzip2 file | bzip2 <file> ;; Compresses a file into a .bz2 archive (high compression, slower). @ file: Path to the file. #bzip2 #compress
+[ZIP] bunzip2 | bzip2 -d <file>.bz2 ;; Decompresses a .bz2 file. @ file: The filename without .bz2. #bzip2 #decompress
+[ZIP] check zip info | gzip -l <file>.gz ;; Shows compression ratio and original size for a .gz file. @ file: The .gz file path. #gzip #info
+[ZIP] read zip | zcat <file>.gz ;; View the contents of a compressed text file without decompressing it. @ file: The .gz file path. #zcat #preview
